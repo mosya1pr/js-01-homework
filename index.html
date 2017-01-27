@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+
+        <!--[if lt IE 9]>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+        <div align="center">
+            <b>Розв’язок квадратного рівняння a·x² + b·x + c = 0</b>
+            <form>
+                <input class="a" name="a" type="text" value="1" size="4"> * x2 +
+                <input class="b" name="b" type="text" value="2" size="4"> * x +
+                <input class="c" name="c" type="text" value="1" size="4">
+                <input type="submit" value="Порахувати">
+            </form>
+            Розв’язок: <span id="result"></span>
+        </div>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/script.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('form').on('submit', function () {
+                    var a = $(this).find('.a').val();
+                    var b = $(this).find('.b').val();
+                    var c = $(this).find('.c').val();
+                    var result = quadFunction(a, b, c);
+                    if (result) {
+                        $("#result").html(result);
+                    } else {
+                        $("#result").html('Немає розв’язку');
+                    }
+                    return false;
+                });
+            });
+        </script>
+    </body>
+</html>
